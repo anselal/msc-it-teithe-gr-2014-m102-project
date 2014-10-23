@@ -14,22 +14,40 @@
 		<!-- Custom styles for this template -->
 		<style>
 			body {
-			padding-top : 60px;
-			padding-bottom: 40px;
+				padding-top : 60px;
+				padding-bottom: 40px;
 			}
 			
 			.sticky-footer {
-			position: absolute;
-			bottom: 0px;
-			display: block;
-			background-color: #222222;
-			color: white;
-			width: 100%;
+				position: absolute;
+				bottom: 0px;
+				display: block;
+				background-color: #222222;
+				color: white;
+				width: 100%;
 			}
 			
 			.sticky-footer p {
-			text-align: center;
+				text-align: center;
 			}
+			
+			/* You can overwrite the navbar background and border color */
+			.navbar-inverse {
+				background-color: #222222; /* default #222222 */
+				/* border-color: #080808; */
+			}
+				
+			/* If you change the navbar background color you should change the background color of the active menu link as well */
+			.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+				color: white; /* default white */
+				background-color: #222222; /* default #222222 */
+			}
+			
+			/* Change the menu link color */
+			.navbar-inverse .navbar-nav>li>a {
+				color: #777; /* default #777; */
+			}
+			
 		</style>
 		<!-- Just for debugging purposes. Don't actually copy this line! -->
 		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

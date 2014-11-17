@@ -7,9 +7,12 @@
  */
 
 $config['protocol'] = 'smtp';
-$config['smtp_host'] = 'ssl://smtp.gmail.com';
+//$config['smtp_host'] = 'ssl://smtp.gmail.com';
+$config['smtp_host'] = 'ssl://server1.5starhost.eu';
 $config['smtp_port'] = 465;
-$config['smtp_user'] = 't.selalmasidis@gmail.com';
-$config['smtp_pass'] = 'Oth3rsid324u14ME!';
+//$config['smtp_user'] = 't.selalmasidis@gmail.com';
+//$config['smtp_pass'] = '';
+$config['smtp_user'] = 'm102@anastasios-selalmazidis.com';
+$config['smtp_pass'] = 'mscm102';
 $config['smtp_timeout'] = '4';
 $config['charset'] = 'iso-8859-7';

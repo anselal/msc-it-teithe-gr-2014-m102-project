@@ -17,7 +17,7 @@ class Email extends CI_Controller {
 
         $this->email->set_newline("\r\n");
 
-        $this->email->from('t.selalmasidis@gmail.com', 'Anastasios Selalmazidis');
+        $this->email->from('m102@anastasios-selalmazidis.com', 'm102-project (c)2014');
         $this->email->to('t.selalmasidis@gmail.com');
         $this->email->subject('This is an email test');
         $this->email->message('It is working. Great!');

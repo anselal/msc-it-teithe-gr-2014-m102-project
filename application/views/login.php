@@ -8,7 +8,7 @@
 ?>
 <!--
 <div class="container">
-    <form class="form-signin" role="form" action="<?=base_url()?>index.php/users/login" method="post">
+    <form class="form-signin" role="form" action="users/login" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <input type="text" name="username" class="form-control" placeholder="User name" required autofocus>
         <input type="password" name="password" class="form-control" placeholder="Password" required>
@@ -32,7 +32,7 @@ if($this->session->userdata("username")) {
 ?>
 
 <!-- Custom styles for this template -->
-<link href="../../frontend/css/signin.css" rel="stylesheet">
+<?php $this->load->helper('html'); echo link_tag('frontend/css/signin.css'); ?>
 
 <div class="container">
     <?php
@@ -57,7 +57,7 @@ if($this->session->userdata("username")) {
         'class' => 'btn btn-lg btn-primary btn-block',
         'value' => 'Submit'
     );
-    echo form_open('index.php/users/login', $form_attributes);
+    echo form_open('users/login', $form_attributes);
     echo "<h2 class='form-signin-heading'>Please sign in</h2>";
     echo form_input($username);
     echo form_password($password);

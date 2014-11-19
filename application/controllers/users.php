@@ -23,7 +23,7 @@ class Users extends CI_Controller {
                 $this->session->set_userdata('userType',$user['user_type']);
                 $this->session->set_userdata('username',$user['username']);
                 $this->session->set_userdata('userType',$user['user_type']);
-                redirect(base_url().'index.php/home');
+                redirect(base_url());
             }
         }
 
@@ -34,6 +34,38 @@ class Users extends CI_Controller {
 
     function logout() {
         $this->session->sess_destroy();
-        redirect(base_url().'index.php/home');
+        redirect(base_url());
+    }
+
+    function admin($v = 'dashboard') {
+        if($this->session->userdata('userType')!='admin') { // if the usertype is not admin
+            redirect(base_url()); // redirect him to the home page
+        } else { // else continue and show the admin panel
+            switch($v) {
+                case 'index':
+                    $this->load->view('admin/index');
+                    break;
+                case 'hotels':
+                    $this->load->view('admin/hotels_view');
+                    break;
+                case 'rooms':
+                    $this->load->view('admin/rooms_view');
+                    break;
+                case 'roomtypes':
+                    $this->load->view('admin/roomtypes_view');
+                    break;
+                case 'reservations':
+                    $this->load->view('admin/reservations_view');
+                    break;
+                case 'users':
+                    $this->load->view('admin/users_view');
+                    break;
+                default:
+                    $this->load->view('admin/dashboard');
+                    break;
+            }
+
+        }
+
     }
 } 

@@ -1,10 +1,10 @@
 <?php
 /**
-* Created by IntelliJ IDEA.
-* User: tasos
-* Date: 11/3/14
-* Time: 9:37 PM
-*/
+ * Created by IntelliJ IDEA.
+ * User: tasos
+ * Date: 11/3/14
+ * Time: 9:37 PM
+ */
 ?>
 <!--
 <div class="container">
@@ -34,6 +34,10 @@ if($this->session->userdata("username")) {
 <!-- Custom styles for this template -->
 <?php $this->load->helper('html'); echo link_tag('frontend/css/signin.css'); ?>
 
+<div>
+    <?php echo anchor('/', '<-Home', ''); ?>
+
+</div>
 <div class="container">
     <?php
     $form_attributes = array(
@@ -64,8 +68,8 @@ if($this->session->userdata("username")) {
     echo form_submit($submit);
     echo form_close();
     ?>
-    <center><?php if($error==1) { ?>
+    <div style="text-align: center;"><?php if($error==1) { ?>
             <h3 style="color:red">Your username / password did not match.</h3>
         <? } ?>
-    </center>
+    </div>
 </div> <!-- /container -->

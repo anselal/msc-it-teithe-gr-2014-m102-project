@@ -13,6 +13,11 @@
             <h1>TAMALITA</h1>
         </div>
     </div>
+    <div class="input-daterange input-group" id="datepicker">
+        <input type="text" class="input-sm form-control" name="start" />
+        <span class="input-group-addon">to</span>
+        <input type="text" class="input-sm form-control" name="end" />
+    </div>
 
 <?php
 if(isset($posts)) {
@@ -22,3 +27,18 @@ if(isset($posts)) {
         <h3><?=$post->post;?></h3>
 
     <?php endforeach; } ?>
+
+<script>
+    $( document ).ready(function() {
+        $('#datepicker').datepicker({
+            format: "dd/mm/yyyy",
+            weekStart: 1,
+            startDate: "1d",
+            endDate: "+6m",
+            todayBtn: "linked",
+            language: "el",
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>

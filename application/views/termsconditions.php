@@ -12,7 +12,7 @@ require_once('templates/footer.php');
 
 $base_url = base_url();
 
-print_header("Contact Us");
+print_header("Terms &amp; Conditions");
 print_navbar();
 ?>
 
@@ -27,7 +27,7 @@ print_navbar();
                     <h1>Terms &amp; Conditions</h1>
                     <ul class="custom-list breadcrumbs">
                         <li><a href="<?php echo $base_url; ?>home">Home</a> / </li>
-                        <li><a href="<?php echo $base_url; ?>home/contact">Contact Us</a></li>
+                        <li><a href="<?php echo $base_url; ?>home/termsconditions">Terms &amp; Conditions</a></li>
                     </ul>
                     <nav class="page-header-nav">
                         <ul class="custom-list clearfix">
@@ -60,4 +60,4 @@ print_navbar();
     <!-- CORE : end -->
 
 
-<?php echo $base_url; ?>
+<?php print_footer(); ?>

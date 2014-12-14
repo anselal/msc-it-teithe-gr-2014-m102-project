@@ -9,6 +9,10 @@
 class Results extends CI_Controller {
 
     function index() {
-        $this->load->view("results_view");
+        $this->load->view("results");
+    }
+
+    function details() {
+        $this->load->view("results_details");
     }
 } 

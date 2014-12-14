@@ -27,7 +27,7 @@ print_navbar();
                 <h1>Privacy Policy</h1>
                 <ul class="custom-list breadcrumbs">
                     <li><a href="<?php echo $base_url; ?>home">Home</a> / </li>
-                    <li><a href="<?php echo $base_url; ?>home/privacpolicy">Privacy Policy</a></li>
+                    <li><a href="<?php echo $base_url; ?>home/privacypolicy">Privacy Policy</a></li>
                 </ul>
                 <nav class="page-header-nav">
                     <ul class="custom-list clearfix">

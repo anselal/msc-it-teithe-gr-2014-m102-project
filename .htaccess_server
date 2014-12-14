@@ -1,5 +1,5 @@
 # Removes index.php from URLs
-# RewriteCond $1 !^(frontend|index\.php|images|robots\.txt)
+# RewriteCond $1 !^(assets|index\.php|images|robots\.txt)
 RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
 RewriteCond %{REQUEST_URI} !/system/.* [NC]
 RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]

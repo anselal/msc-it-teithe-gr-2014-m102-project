@@ -3,48 +3,38 @@
  * Created by IntelliJ IDEA.
  * User: tasos
  * Date: 11/3/14
- * Time: 9:35 PM
+ * Time: 9:37 PM
  */
-?>
 
+function print_header($title="Home") {
+    $base_url = base_url();
+    echo <<< EOF
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Start Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{$title}</title>
+    <link rel="shortcut icon" href="{$base_url}assets/img/favicon.ico" />
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <?php if(isset($css)) {
-        foreach($css as $link) :
-        echo link_tag($link);
-        endforeach;
-    } ?>
+    <!-- STYLESHEETS : begin -->
+    <link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/animate.custom.css" />
+    <link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/magnific-popup.css" />
+    <link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/skins/default.css" />
+    <!--link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/custom.css"> uncomment if you want to use custom CSS definitions -->
+    <!-- STYLESHEETS : end -->
 
-
-    <!-- Custom styles for this template -->
-    <style>
-        body {
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <?php if(isset($javascripts)) {
-        foreach($javascripts as $js) : ?>
-        <script src="<?=$js;?>"></script>
-    <?php endforeach; } ?>
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/oldie.css" />
+    <script src="{$base_url}assets/library/js/respond.min.js" type="text/javascript"></script>
     <![endif]-->
-</head>
+    <script src="{$base_url}assets/library/js/modernizr.custom.min.js" type="text/javascript"></script>
 
-<body>
-<div class="container">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+EOF;
+
+}
+?>

@@ -1,0 +1,22 @@
+# Removes index.php from URLs
+RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+RewriteCond %{REQUEST_URI} !/system/.* [NC]
+RewriteRule (.*?)index\.php/*(.*) ~tasos/m102/$1$2 [R=301,NE,L]
+
+RewriteEngine on
+RewriteBase    /
+RewriteCond $1 !^(assets|index\.php|images|robots\.txt)
+RewriteRule ^(.*)$ ~tasos/m102/index.php?/$1 [L]
+
+# Directs all web requests through the site index file
+#Rewrite Engine on
+#RewriteBase /
+#RewriteCond %{REQUEST_FILENAME}% !-f
+#RewriteCond %{REQUEST_FILENAME}% !-d
+#RewriteRule ^(.*)$ index.php?/$1 [L]
+
+# Directs all web requests through the site index file
+#RewriteEngine on
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule .* index.php?/$0 [PT,L] 

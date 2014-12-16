@@ -14,7 +14,7 @@ function print_header($title="Home") {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{$title}</title>
-    <link rel="shortcut icon" href="{$base_url}assets/img/favicon.ico" />
+    <link rel="shortcut icon" href="{$base_url}assets/img/favicon.png" />
 
     <!-- STYLESHEETS : begin -->
     <link rel="stylesheet" type="text/css" href="{$base_url}assets/library/css/bootstrap.min.css" />

@@ -1,175 +1,177 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               5.6.22 - MySQL Community Server (GPL)
+-- Server OS:                    Linux
+-- HeidiSQL Version:             9.1.0.4867
+-- --------------------------------------------------------
 
-DROP SCHEMA IF EXISTS `m102` ;
-CREATE SCHEMA IF NOT EXISTS `m102` DEFAULT CHARACTER SET latin1 ;
-USE `m102` ;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- -----------------------------------------------------
--- Table `m102`.`ci_sessions`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `m102`.`ci_sessions` ;
-
-CREATE  TABLE IF NOT EXISTS `m102`.`ci_sessions` (
-  `session_id` VARCHAR(40) NOT NULL DEFAULT '0' ,
-  `ip_address` VARCHAR(45) NOT NULL DEFAULT '0' ,
-  `user_agent` VARCHAR(120) NOT NULL ,
-  `last_activity` INT(10) UNSIGNED NOT NULL DEFAULT '0' ,
-  `user_data` TEXT NOT NULL ,
-  PRIMARY KEY (`session_id`) ,
-  INDEX `last_activity_idx` (`last_activity` ASC) )
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+-- Dumping database structure for m102
+DROP DATABASE IF EXISTS `m102`;
+CREATE DATABASE IF NOT EXISTS `m102` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `m102`;
 
 
--- -----------------------------------------------------
--- Table `m102`.`hotel`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `m102`.`hotel` ;
+-- Dumping structure for table m102.ci_sessions
+DROP TABLE IF EXISTS `ci_sessions`;
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+  `session_id` varchar(40) NOT NULL DEFAULT '0',
+  `ip_address` varchar(45) NOT NULL DEFAULT '0',
+  `user_agent` varchar(120) NOT NULL,
+  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
+  `user_data` text NOT NULL,
+  PRIMARY KEY (`session_id`),
+  KEY `last_activity_idx` (`last_activity`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE  TABLE IF NOT EXISTS `m102`.`hotel` (
-  `Code` TINYINT(4) NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(45) NOT NULL ,
-  `street` VARCHAR(45) NOT NULL ,
-  `pobox` INT(11) NOT NULL ,
-  `city` VARCHAR(50) NOT NULL ,
-  `wifi` TINYINT(4) NOT NULL ,
-  `parking` TINYINT(4) NOT NULL ,
-  `tv` TINYINT(4) NOT NULL ,
-  `ac` TINYINT(4) NOT NULL ,
-  PRIMARY KEY (`Code`) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `m102`.`posts`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `m102`.`posts` ;
-
-CREATE  TABLE IF NOT EXISTS `m102`.`posts` (
-  `postID` INT(10) NOT NULL AUTO_INCREMENT ,
-  `title` VARCHAR(255) NOT NULL ,
-  `post` TEXT NOT NULL ,
-  `date_added` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
-  `userID` INT(4) NOT NULL ,
-  `active` TINYINT(1) NOT NULL ,
-  PRIMARY KEY (`postID`) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 9
-DEFAULT CHARACTER SET = latin1;
+-- Dumping data for table m102.ci_sessions: ~4 rows (approximately)
+DELETE FROM `ci_sessions`;
+/*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
+INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
+	('57cff06fcf5501eff318f33ac23e08ab', '188.109.125.34', 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0', 1419250526, ''),
+	('5d68d5562a0c3d253b3116c5f11428b5', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36', 1419250513, ''),
+	('7cbb67624cb3bc611c4f43111b1e8ad0', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36', 1419251136, ''),
+	('a347fb7c303675a8173800721710b770', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36', 1419256276, '');
+/*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
 
 
--- -----------------------------------------------------
--- Table `m102`.`roomtype`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `m102`.`roomtype` ;
+-- Dumping structure for table m102.hotel
+DROP TABLE IF EXISTS `hotel`;
+CREATE TABLE IF NOT EXISTS `hotel` (
+  `Code` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `street` varchar(45) NOT NULL,
+  `pobox` int(11) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `wifi` enum('No','Yes') NOT NULL,
+  `parking` enum('No','Yes') NOT NULL,
+  `tv` enum('No','Yes') NOT NULL,
+  `ac` enum('No','Yes') NOT NULL,
+  PRIMARY KEY (`Code`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-CREATE  TABLE IF NOT EXISTS `m102`.`roomtype` (
-  `Code` TINYINT(4) NOT NULL AUTO_INCREMENT ,
-  `description` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`Code`) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `m102`.`room`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `m102`.`room` ;
-
-CREATE  TABLE IF NOT EXISTS `m102`.`room` (
-  `Code` TINYINT(4) NOT NULL AUTO_INCREMENT ,
-  `hotelcode` TINYINT(4) NOT NULL ,
-  `roomtype` TINYINT(4) NOT NULL ,
-  `quantity` TINYINT(4) NOT NULL ,
-  `price` FLOAT NOT NULL ,
-  `foto` VARCHAR(255) NULL DEFAULT NULL ,
-  PRIMARY KEY (`Code`) ,
-  INDEX `fk_room_1` (`hotelcode` ASC) ,
-  INDEX `fk_roomtype` (`roomtype` ASC) ,
-  CONSTRAINT `fk_hotel`
-    FOREIGN KEY (`hotelcode` )
-    REFERENCES `m102`.`hotel` (`Code` ),
-  CONSTRAINT `fk_roomtype`
-    FOREIGN KEY (`roomtype` )
-    REFERENCES `m102`.`roomtype` (`Code` ))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+-- Dumping data for table m102.hotel: ~2 rows (approximately)
+DELETE FROM `hotel`;
+/*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
+INSERT INTO `hotel` (`Code`, `name`, `street`, `pobox`, `city`, `wifi`, `parking`, `tv`, `ac`) VALUES
+	(1, 'Hilton', 'Egnatia', 54124, 'Thessaloniki', 'Yes', 'Yes', 'Yes', 'Yes');
+/*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
 
 
--- -----------------------------------------------------
--- Table `m102`.`user`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `m102`.`user` ;
+-- Dumping structure for table m102.reservation
+DROP TABLE IF EXISTS `reservation`;
+CREATE TABLE IF NOT EXISTS `reservation` (
+  `Code` int(11) NOT NULL AUTO_INCREMENT,
+  `roomcode` tinyint(4) NOT NULL,
+  `clientcode` tinyint(4) NOT NULL,
+  `referencecode` tinyint(4) NOT NULL,
+  `checkin` date NOT NULL,
+  `checkout` date NOT NULL,
+  `personnum` int(11) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
+  `breakfast` tinyint(1) NOT NULL,
+  `remarks` varchar(50) NOT NULL,
+  `reservationdate` date NOT NULL,
+  PRIMARY KEY (`Code`),
+  KEY `fk_room` (`roomcode`),
+  KEY `fk_client` (`clientcode`),
+  CONSTRAINT `fk_client` FOREIGN KEY (`clientcode`) REFERENCES `user` (`Code`),
+  CONSTRAINT `fk_room` FOREIGN KEY (`roomcode`) REFERENCES `room` (`Code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE  TABLE IF NOT EXISTS `m102`.`user` (
-  `Code` TINYINT(4) NOT NULL AUTO_INCREMENT ,
-  `email` VARCHAR(255) NOT NULL ,
-  `username` VARCHAR(80) NOT NULL ,
-  `password` VARCHAR(255) NOT NULL ,
-  `user_type` ENUM('admin','manager','client') NOT NULL ,
-  `name` VARCHAR(30) NOT NULL ,
-  `id_number` VARCHAR(15) NOT NULL ,
-  `doctype` VARCHAR(15) NOT NULL ,
-  `street` VARCHAR(30) NOT NULL ,
-  `pobox` INT(6) NOT NULL ,
-  `city` VARCHAR(30) NOT NULL ,
-  `country` VARCHAR(30) NOT NULL ,
-  `remark` VARCHAR(40) NOT NULL ,
-  PRIMARY KEY (`Code`) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
--- Table `m102`.`reservation`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `m102`.`reservation` ;
-
-CREATE  TABLE IF NOT EXISTS `m102`.`reservation` (
-  `Code` INT(11) NOT NULL AUTO_INCREMENT ,
-  `roomcode` TINYINT(4) NOT NULL ,
-  `clientcode` TINYINT(4) NOT NULL ,
-  `referencecode` TINYINT(4) NOT NULL ,
-  `checkin` DATE NOT NULL ,
-  `checkout` DATE NOT NULL ,
-  `personnum` INT(11) NOT NULL ,
-  `price` DECIMAL(10,0) NOT NULL ,
-  `breakfast` TINYINT(1) NOT NULL ,
-  `remarks` VARCHAR(50) NOT NULL ,
-  `reservationdate` DATE NOT NULL ,
-  PRIMARY KEY (`Code`) ,
-  INDEX `fk_room` (`roomcode` ASC) ,
-  INDEX `fk_client` (`clientcode` ASC) ,
-  CONSTRAINT `fk_room`
-    FOREIGN KEY (`roomcode` )
-    REFERENCES `m102`.`room` (`Code` ),
-  CONSTRAINT `fk_client`
-    FOREIGN KEY (`clientcode` )
-    REFERENCES `m102`.`user` (`Code` ))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+-- Dumping data for table m102.reservation: ~0 rows (approximately)
+DELETE FROM `reservation`;
+/*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 
 
--- -----------------------------------------------------
--- Table `m102`.`reserved`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `m102`.`reserved` ;
+-- Dumping structure for table m102.reserved
+DROP TABLE IF EXISTS `reserved`;
+CREATE TABLE IF NOT EXISTS `reserved` (
+  `Code` bigint(20) NOT NULL,
+  `ReseravtionCode` bigint(20) NOT NULL,
+  `ReaservedDate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE  TABLE IF NOT EXISTS `m102`.`reserved` (
-  `Code` BIGINT(20) NOT NULL ,
-  `ReseravtionCode` BIGINT(20) NOT NULL ,
-  `ReaservedDate` DATE NOT NULL )
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+-- Dumping data for table m102.reserved: ~0 rows (approximately)
+DELETE FROM `reserved`;
+/*!40000 ALTER TABLE `reserved` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reserved` ENABLE KEYS */;
 
 
+-- Dumping structure for table m102.room
+DROP TABLE IF EXISTS `room`;
+CREATE TABLE IF NOT EXISTS `room` (
+  `Code` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `hotelcode` tinyint(4) NOT NULL,
+  `roomtype` tinyint(4) NOT NULL,
+  `quantity` tinyint(4) NOT NULL,
+  `price` float NOT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Code`),
+  KEY `fk_room_1` (`hotelcode`),
+  KEY `fk_roomtype` (`roomtype`),
+  CONSTRAINT `fk_roomtype` FOREIGN KEY (`RoomType`) REFERENCES `roomtype` (`Code`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+-- Dumping data for table m102.room: ~3 rows (approximately)
+DELETE FROM `room`;
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` (`Code`, `hotelcode`, `roomtype`, `quantity`, `price`, `foto`) VALUES
+	(1, 1, 1, 10, 45, NULL),
+	(2, 1, 2, 10, 55, NULL),
+	(3, 1, 3, 10, 65, NULL);
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
+
+
+-- Dumping structure for table m102.roomtype
+DROP TABLE IF EXISTS `roomtype`;
+CREATE TABLE IF NOT EXISTS `roomtype` (
+  `Code` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `description` enum('Monoklino','Diklino','Triklino') NOT NULL,
+  PRIMARY KEY (`Code`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table m102.roomtype: ~2 rows (approximately)
+DELETE FROM `roomtype`;
+/*!40000 ALTER TABLE `roomtype` DISABLE KEYS */;
+INSERT INTO `roomtype` (`Code`, `description`) VALUES
+	(1, 'Monoklino'),
+	(2, 'Diklino'),
+	(3, 'Triklino');
+/*!40000 ALTER TABLE `roomtype` ENABLE KEYS */;
+
+
+-- Dumping structure for table m102.user
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `Code` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(80) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `user_type` enum('admin','manager','client') NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `id_number` varchar(15) NOT NULL,
+  `doctype` varchar(15) NOT NULL,
+  `street` varchar(30) NOT NULL,
+  `pobox` int(6) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `country` varchar(30) NOT NULL,
+  `remark` varchar(40) NOT NULL,
+  PRIMARY KEY (`Code`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table m102.user: ~2 rows (approximately)
+DELETE FROM `user`;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`Code`, `email`, `username`, `password`, `user_type`, `name`, `id_number`, `doctype`, `street`, `pobox`, `city`, `country`, `remark`) VALUES
+	(1, 'anselal@auth.gr', 'anselal', '47cab398fdc08f7abc8c700bf04a7186a1330db5', 'admin', 'Anastasios Selalmazidis', '', '', '', 0, '', '', ''),
+	(3, 'foo@bar.org', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'client', 'test client', '', '', '', 0, '', '', '');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

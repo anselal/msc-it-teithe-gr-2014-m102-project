@@ -16,7 +16,7 @@ class Admin extends CI_Controller{
     }
 
     function index() {
-        $this->load->view('admin/dash',(object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
+        $this->load->view('admin/dashboard',(object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
     }
 
     public function hotels() {

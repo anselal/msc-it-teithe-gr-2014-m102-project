@@ -246,18 +246,18 @@ print_navbar($sessionData);
 
         <!-- SEARCH INPUT : begin -->
         <p class="search-input">
-            <input type="text" placeholder="Where do you want to book?" />
+            <input type="text" name="city" value="<?php if($this->input->get_post('city',TRUE)) { echo $this->input->get_post('city',TRUE); }  ?>" placeholder="Where do you want to book?" />
         </p>
         <!-- SEARCH INPUT : end -->
 
         <!-- ARRIVAL DATE, DEPARTURE DATE : begin -->
         <p class="form-row clearfix">
 												<span class="calendar-input input-left" title="Arrival">
-													<input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y" />
+													<input type="text" value="<?php if($this->input->get_post('arrival',TRUE)) { echo $this->input->get_post('arrival',TRUE); }  ?>" name="arrival" placeholder="Arrival" data-dateformat="m/d/y" />
 													<i class="fa fa-calendar"></i>
 												</span>
 												<span class="calendar-input input-right" title="Departure">
-													<input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y" />
+													<input type="text" value="<?php if($this->input->get_post('departure',TRUE)) { echo $this->input->get_post('departure',TRUE); }  ?>" name="departure" placeholder="Departure" data-dateformat="m/d/y" />
 													<i class="fa fa-calendar"></i>
 												</span>
         </p>

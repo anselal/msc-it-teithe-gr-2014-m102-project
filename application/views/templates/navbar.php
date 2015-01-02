@@ -90,7 +90,7 @@ border-bottom: 3px solid transparent;
                     </div>
                     <!-- HEADER REGISTER : end -->
 EOF;
-    if(isset($sessionData['userID'])) {
+    if($sessionData['userID']) {
         echo "<a href='{$base_url}users/logout' class='header-button'><i class='fa fa-power-off'></i> Logout ({$sessionData['username']})</a>" ;
         if($sessionData['userType']=='admin') {
             echo "<a href='{$base_url}admin' class='header-button'> | <b>Admin</b></a>" ;
@@ -104,7 +104,7 @@ EOF;
 
                         <button class="login-toggle header-btn"><i class="fa fa-power-off"></i> Login</button>
                         <div class="header-form">
-                            <form action="users/login" class="default-form" method="post" />
+                            <form action="{$base_url}users/login" class="default-form" method="post" />
                             <p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i> All fields are required! <i class="fa fa-times close"></i></p>
                             <p class="form-row">
                                 <input required type="text" placeholder="Username" name="username" />

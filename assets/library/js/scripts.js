@@ -654,7 +654,7 @@ $(document).ready(function(){
 	$( '.calendar-input' ).each(function(){
 
 		var input = $(this).find( 'input' ),
-		dateformat = input.data( 'dateformat' ) ? input.data( 'dateformat' ) : 'm/d/y',
+		dateformat = input.data( 'dateformat' ) ? input.data( 'dateformat' ) : 'd/m/y',
 		icon = $(this).find( '.fa' ),
 		widget = input.datepicker( 'widget' );
 

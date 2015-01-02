@@ -14,7 +14,8 @@ $base_url = base_url();
 
 print_header("Home");
 $sessionData[] = NULL;
-if($this->session->userdata('userID')) {
+$userID = $this->session->userdata('userID');
+if(isset($userID)) {
     $sessionData['userID'] = $this->session->userdata('userID');
     $sessionData['username'] = $this->session->userdata('username');
     $sessionData['userType'] = $this->session->userdata('userType');
@@ -48,20 +49,20 @@ print_navbar($sessionData);
 
                         <!-- SEARCH INPUT : begin -->
 									<span class="search-input">
-										<input type="text" placeholder="Where do you want to book?" />
+										<input type="text" required name="city" placeholder="Where do you want to book?" />
 									</span>
                         <!-- SEARCH INPUT : end -->
 
                         <!-- ARRIVAL DATE : begin -->
 									<span class="calendar-input input-left" title="Arrival">
-										<input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y" />
+										<input type="text" name="arrival" placeholder="Arrival" data-dateformat="d/m/y" />
 										<i class="fa fa-calendar"></i>
 									</span>
                         <!-- ARRIVAL DATE : end -->
 
                         <!-- DEPARTURE DATE : begin -->
 									<span class="calendar-input input-right" title="Departure">
-										<input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y" />
+										<input type="text" name="departure" placeholder="Departure" data-dateformat="d/m/y" />
 										<i class="fa fa-calendar"></i>
 									</span>
                         <!-- DEPARTURE DATE : end -->

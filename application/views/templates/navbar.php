@@ -107,10 +107,10 @@ EOF;
                             <form action="users/login" class="default-form" method="post" />
                             <p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i> All fields are required! <i class="fa fa-times close"></i></p>
                             <p class="form-row">
-                                <input class="required" type="text" placeholder="Username" name="username" />
+                                <input required type="text" placeholder="Username" name="username" />
                             </p>
                             <p class="form-row">
-                                <input class="required" type="password" placeholder="Password" name="password" />
+                                <input required type="password" placeholder="Password" name="password" />
                             </p>
                             <p class="form-row">
                                 <button class="submit-btn button"><i class="fa fa-power-off"></i> Login</button>

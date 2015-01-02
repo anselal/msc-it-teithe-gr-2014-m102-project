@@ -18,6 +18,7 @@ class Users extends CI_Controller {
             $user=$this->user->login($username,$password);
             if(!$user) {
                 $data['error']=1;
+                redirect(base_url());
             } else {
                 $this->session->set_userdata('userID',$user['Code']);
                 $this->session->set_userdata('userType',$user['user_type']);
@@ -26,9 +27,9 @@ class Users extends CI_Controller {
             }
         }
 
-        $this->load->view('templates/header');
-        $this->load->view('login', $data);
-        $this->load->view('templates/footer');
+        //$this->load->view('templates/header');
+        //$this->load->view('login', $data);
+        //$this->load->view('templates/footer');
     }
 
     function logout() {

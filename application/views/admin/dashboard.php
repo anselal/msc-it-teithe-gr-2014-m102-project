@@ -44,8 +44,11 @@
                 <li <?php if($currentMethod=="users") echo "class='active'"; ?> >
                     <a href="<?php echo site_url(); ?>admin/users">Users</a>
                 </li>
+                <li <?php if($currentMethod=="sessions") echo "class='active'"; ?> >
+                    <a href="<?php echo site_url(); ?>admin/sessions">Sessions</a>
+                </li>
                 <li>
-                    <a href="#">Logout</a>
+                    <a href="<?php echo site_url(); ?>users/logout">Logout</a>
                 </li>
             </ul>
         </div>

@@ -90,7 +90,7 @@ border-bottom: 3px solid transparent;
                     </div>
                     <!-- HEADER REGISTER : end -->
 EOF;
-    if($sessionData['userID']) {
+    if(isset($sessionData['userID']) && $sessionData['userID']!=NULL) {
         echo "<a href='{$base_url}users/logout' class='header-button'><i class='fa fa-power-off'></i> Logout ({$sessionData['username']})</a>" ;
         if($sessionData['userType']=='admin') {
             echo "<a href='{$base_url}admin' class='header-button'> | <b>Admin</b></a>" ;

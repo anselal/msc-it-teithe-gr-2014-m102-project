@@ -12,7 +12,7 @@ class Email extends CI_Controller {
         parent::__construct();
     }
 
-    function index() {
+    function _index() {
         $this->load->library('email');
 
         $this->email->set_newline("\r\n");
@@ -22,9 +22,9 @@ class Email extends CI_Controller {
         $this->email->subject('This is an email test');
         $this->email->message('It is working. Great!');
 
-        $file = "/home/tasos/public_html/m102/license.txt" ;
+        //$file = "/home/tasos/public_html/m102/license.txt" ;
 
-        $this->email->attach($file);
+        //$this->email->attach($file);
 
         if($this->email->send()) { // send() will return 1 if succesfull
             echo 'Your email was sent, fool.';
@@ -32,7 +32,47 @@ class Email extends CI_Controller {
         else {
             show_error($this->email->print_debugger());
         }
+    }
 
+    function contact_email() {
+        $this->load->library('email');
 
+        $this->load->helper(array('form', 'url'));
+
+        $this->load->library('form_validation');
+
+            $this->form_validation->set_rules('field_name', 'Username', 'required');
+            $this->form_validation->set_rules('field_email', 'Email', 'required');
+            $this->form_validation->set_rules('field_phone', 'Phone', 'required');
+            $this->form_validation->set_rules('field_subject', 'Subject', 'required');
+            $this->form_validation->set_rules('field_message', 'Message', 'required');
+
+            if ($this->form_validation->run() == FALSE)
+            {
+                show_error($this->email->print_debugger());
+            }
+            else
+            {
+                $this->email->set_newline("\r\n");
+
+                $name=$this->input->post('field_name',true);
+                $email=$this->input->post('field_email',true);
+                $phone=$this->input->post('field_phone',true);
+                $subject=$this->input->post('field_subject',true);
+                $message=$this->input->post('field_message',true);
+                $message .= "\nPhone Number: " . $phone;
+
+                $this->email->from($email, $name);
+                $this->email->to('t.selalmasidis@gmail.com');
+                $this->email->subject($subject);
+                $this->email->message($message);
+
+                if($this->email->send()) {
+                    echo 'Your email was sent.';
+                }
+                else {
+                    show_error($this->email->print_debugger());
+                }
+            }
     }
 } 

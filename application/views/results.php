@@ -12,7 +12,13 @@ require_once('templates/footer.php');
 
 $base_url = base_url();
 print_header("Results");
-print_navbar();
+$sessionData[] = NULL;
+if($this->session->userdata('userID')) {
+    $sessionData['userID'] = $this->session->userdata('userID');
+    $sessionData['username'] = $this->session->userdata('username');
+    $sessionData['userType'] = $this->session->userdata('userType');
+}
+print_navbar($sessionData);
 ?>
 
 

@@ -6,11 +6,21 @@
  * Time: 6:15 PM
  */
 
-function print_navbar() {
+function print_navbar($sessionData) {
     $base_url = base_url();
     echo <<< EOF
 <body class="enable-fixed-header enable-inview-animations">
-
+<style>
+.header-button {
+color: #f1155a;
+}
+.header-button {
+height: 84px;
+line-height: 84px;
+cursor: pointer;
+border-bottom: 3px solid transparent;
+}
+</style>
 <!-- HEADER : begin -->
 <header id="header">
     <div class="container">
@@ -79,18 +89,28 @@ function print_navbar() {
                         </div>
                     </div>
                     <!-- HEADER REGISTER : end -->
+EOF;
+    if(isset($sessionData['userID'])) {
+        echo "<a href='{$base_url}users/logout' class='header-button'><i class='fa fa-power-off'></i> Logout ({$sessionData['username']})</a>" ;
+        if($sessionData['userType']=='admin') {
+            echo "<a href='{$base_url}admin' class='header-button'> | <b>Admin</b></a>" ;
+        }
+    }
+    else {
 
+        echo <<<EOF
                     <!-- HEADER LOGIN : begin -->
                     <div class="header-login">
+
                         <button class="login-toggle header-btn"><i class="fa fa-power-off"></i> Login</button>
                         <div class="header-form">
-                            <form action="index.html" class="default-form" />
+                            <form action="users/login" class="default-form" method="post" />
                             <p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i> All fields are required! <i class="fa fa-times close"></i></p>
                             <p class="form-row">
-                                <input class="required email" type="text" placeholder="Email" />
+                                <input class="required" type="text" placeholder="Username" name="username" />
                             </p>
                             <p class="form-row">
-                                <input class="required" type="password" placeholder="Password" />
+                                <input class="required" type="password" placeholder="Password" name="password" />
                             </p>
                             <p class="form-row">
                                 <button class="submit-btn button"><i class="fa fa-power-off"></i> Login</button>
@@ -102,21 +122,14 @@ function print_navbar() {
                         </div>
                     </div>
                     <!-- HEADER LOGIN : end -->
-
-
+EOF;
+    }
+echo <<<EOF
                 </div>
                 <!-- HEADER TOOLS : end -->
 
             </div>
             <!-- HEADER NAVBAR : end -->
-
-            <!-- SEARCH TOGGLE : begin -->
-            <button class="search-toggle button"><i class="fa fa-search"></i></button>
-            <!-- SEARCH TOGGLE : end -->
-
-            <!-- NAVBAR TOGGLE : begin -->
-            <button class="navbar-toggle button"><i class="fa fa-bars"></i></button>
-            <!-- NAVBAR TOGGLE : end -->
 
         </div>
     </div>

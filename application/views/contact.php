@@ -13,7 +13,13 @@ require_once('templates/footer.php');
 $base_url = base_url();
 
 print_header("Contact Us");
-print_navbar();
+$sessionData[] = NULL;
+if($this->session->userdata('userID')) {
+    $sessionData['userID'] = $this->session->userdata('userID');
+    $sessionData['username'] = $this->session->userdata('username');
+    $sessionData['userType'] = $this->session->userdata('userType');
+}
+print_navbar($sessionData);
 ?>
 
 
@@ -64,9 +70,10 @@ print_navbar();
                     <div class="col-sm-7">
 
                         <div class="contact-form-container">
-
                             <h5>Send Us a Message</h5>
-                            <form id="contact-form" action="<?php echo $base_url; ?>home/contact" method="post" class="default-form" />
+                            <?php echo validation_errors(); ?>
+
+                            <?php echo form_open('email/contact_email'); ?>
 
                             <!-- FORM VALIDATION ERROR MESSAGE : begin -->
                             <p class="alert-message warning validation" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><strong>All fields are required!</strong></p>
@@ -96,8 +103,9 @@ print_navbar();
 												<span class="select-box">
 													<select id="field_subject" name="field_subject" class="required" data-placeholder="Subject">
                                                         <option />Subject
-                                                        <option value="lorem-ipsum" />Lorem Ipsum
-                                                        <option value="dolor-sit" />Dolor Sit
+                                                        <option value="hello" />Say Hello
+                                                        <option value="question" />Ask a question
+                                                        <option value="feedback" />Leave Feedback
                                                     </select>
 												</span>
                                     </p>

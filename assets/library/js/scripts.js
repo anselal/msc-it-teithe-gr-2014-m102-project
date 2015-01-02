@@ -71,7 +71,7 @@
 	/* -------------------------------------------------------------------------
 		CONTACT FORM
 	------------------------------------------------------------------------- */
-
+/*
 	$.fn.uouContactForm = function(){
 
 		var form = $(this).prop( 'tagName' ).toLowerCase() === 'form' ? $(this) : $(this).find( 'form' ),
@@ -127,7 +127,7 @@
 			}
 		});
 	};
-
+*/
 	/* -------------------------------------------------------------------------
 		FORM ELEMENTS
 	------------------------------------------------------------------------- */
@@ -918,7 +918,7 @@ $(document).ready(function(){
 				form_holder.stop( true, true ).delay(10).slideUp(200);
 			}
 		});
-
+/*
 		// VALIDATE FORM
 		form_holder.find( 'form' ).submit(function(){
 
@@ -932,7 +932,7 @@ $(document).ready(function(){
 			}
 
 		});
-
+*/
 		// TOGGLE
 		btn.click(function(){
 			if ( media_query_breakpoint <= 991 ) {

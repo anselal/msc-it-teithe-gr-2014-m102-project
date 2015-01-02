@@ -22,7 +22,6 @@ class Users extends CI_Controller {
                 $this->session->set_userdata('userID',$user['Code']);
                 $this->session->set_userdata('userType',$user['user_type']);
                 $this->session->set_userdata('username',$user['username']);
-                $this->session->set_userdata('userType',$user['user_type']);
                 redirect(base_url());
             }
         }

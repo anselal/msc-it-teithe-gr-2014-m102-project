@@ -8,6 +8,9 @@
 
 class User extends CI_Model {
 
+    /*
+        param $data is a table
+     */
     function create_user($data) {
         $this->db->insert('user',$data);
     }
@@ -21,4 +24,23 @@ class User extends CI_Model {
         $query=$this->db->get();
         return $query->first_row('array');
     }
+
+    function check_for_username($username) {
+        $where=array(
+            'username'=>$username
+        );
+        $this->db->select()->from('user')->where($where);
+        $query=$this->db->get();
+        return $query->first_row('array');
+    }
+
+    function check_for_email($email) {
+        $where=array(
+            'email'=>$email
+        );
+        $this->db->select()->from('user')->where($where);
+        $query=$this->db->get();
+        return $query->first_row('array');
+    }
+
 } 

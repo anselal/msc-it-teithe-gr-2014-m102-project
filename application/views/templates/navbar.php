@@ -66,27 +66,7 @@ border-bottom: 3px solid transparent;
 
                     <!-- HEADER REGISTER : begin -->
                     <div class="header-register">
-                        <button class="register-toggle header-btn"><i class="fa fa-plus-circle"></i> Register</button>
-                        <div class="header-form">
-                            <form action="index.html" class="default-form" />
-                            <p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i> All fields are required! <i class="fa fa-times close"></i></p>
-                            <p class="form-row">
-                                <input class="required" type="text" placeholder="Username" />
-                            </p>
-                            <p class="form-row">
-                                <input class="required email" type="text" placeholder="Email" />
-                            </p>
-                            <p class="form-row">
-                                <input class="required" type="password" placeholder="Password" />
-                            </p>
-                            <p class="form-row">
-                                <input class="required" type="password" placeholder="Repeat Password" />
-                            </p>
-                            <p class="form-row">
-                                <button class="submit-btn button"><i class="fa fa-plus-circle"></i> Register</button>
-                            </p>
-                            </form>
-                        </div>
+                        <a href="{$base_url}users/register" class="header-button"><i class="fa fa-plus-circle"></i> Register</a>
                     </div>
                     <!-- HEADER REGISTER : end -->
 EOF;

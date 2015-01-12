@@ -31,7 +31,7 @@ $this->load->helper('form');
         <div class="page-header has-nav">
             <div class="container">
                 <div class="page-header-inner">
-                    <h1>Contact Us</h1>
+                    <h1>Επικοινωνία</h1>
                     <ul class="custom-list breadcrumbs">
                         <li><a href="<?php echo $base_url; ?>home">Αρχική</a> / </li>
                         <li><a href="<?php echo $base_url; ?>home/contact">Επικοινωνία</a></li>
@@ -116,9 +116,9 @@ $this->load->helper('form');
                                 echo form_dropdown('field_subject',
                                     array(
                                         '' => 'Σκοπός επικοινωνίας',
-                                        'Say Hello'  => 'Αφήστε ένα μήνυμα',
-                                        'Ask a question'    => 'Ρωτήστε μας κάτι',
-                                        'Αφήστε κάποιο σχόλιο'   => 'Αφήστε κάποιο σχόλιο'),
+                                        'Αφήσει ένα μήνυμα'  => 'Αφήστε ένα μήνυμα',
+                                        'Ρωτήσει κάτι'    => 'Ρωτήστε μας κάτι',
+                                        'Κάνει κάποιο σχόλιο'   => 'Κάντε κάποιο σχόλιο'),
                                     '', // default value
                                     'id="field_subject" name="field_subject" required data-placeholder="Subject"');
 

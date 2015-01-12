@@ -49,9 +49,9 @@ print_navbar($sessionData);
                 <div class="row">
                     <div class="col-sm-6">
 
-                        <h2>Register</h2>
-                        <p>To facilitate your registration we inform you that all the fields are required.</p>
-                        <p>The field Name requires at least 4 characters,the field Username requires at least 5 characters, the field Password requires at least 4 characters and the field Repeat Password must be the same with the previous.</p>
+                        <h2>Εγγραφή</h2>
+                        <p>Για να διευκολύνουμε την εγγραφή, σας ενημερώνουμε ότι απαιτείται η συμπλήρωση όλων των πεδίων.</p>
+                        <p>Το πεδίο «Όνομα» απαιτεί τουλάχιστον 4 χαρακτήρες, το πεδίο «Όνομα χρήστη» απαιτεί τουλάχιστον 5 χαρακτήρες, το πεδίο «Συνθηματικό» απαιτεί τουλάχιστον 4 χαρακτήρες και το πεδίο «Επανάληψη συνθηματικού» πρέπει να είναι ίδιο με το προηγούμενο. Επίσης στο πεδίο «Email» πρέπει να εισάγετε μια έγκυρη ηλεκτρονική διεύθυνση.  </p>
 
                     </div>
                     <div class="col-sm-6">
@@ -65,9 +65,6 @@ print_navbar($sessionData);
                         }
                         if(isset($email_exists)) {
                             echo $email_exists;
-                        }
-                        if(isset($email_not_sent)) {
-                            echo $email_not_sent;
                         }
                         echo validation_errors();
 

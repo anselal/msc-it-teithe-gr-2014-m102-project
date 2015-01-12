@@ -15,4 +15,4 @@ $config['smtp_port'] = 465;
 $config['smtp_user'] = 'project-casa@msc.ateithe.com';
 $config['smtp_pass'] = 'mscm102';
 $config['smtp_timeout'] = '4';
-$config['charset'] = 'iso-8859-7';
+//$config['charset'] = 'iso-8859-7';

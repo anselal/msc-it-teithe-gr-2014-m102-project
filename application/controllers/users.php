@@ -111,7 +111,6 @@ class Users extends CI_Controller {
             // TO-DO
             // check $registeredUser
 
-            // TO-DO
             // send email after register
             $new_user = array(
                 'name' => $this->input->post('name'),
@@ -119,11 +118,7 @@ class Users extends CI_Controller {
                 'username' => $this->input->post('username'),
                 'password' => $this->input->post('password'),
             );
-            if(!_new_user_email($new_user)) {
-                $data['email_not_sent'] = 'Η εγγραφή σας ολοκληρώθηκε με επιτυχία. Αντιμετωπίστηκε πρόβλημα κατά την αποστολή μηνύματος στη διεύθυνση που δηλώσατε.';
-                $this->load->view("register", $data);
-                return;
-            }
+            $this->_new_user_email($new_user);
 
             // print message after insert
             $data['registered_successful'] = 'Η εγγραφή σας ολοκληρώθηκε με επιτυχία. Τα στοιχεία του λογαριασμού σας στάλθηκαν στη διεύθυνση ' . $this->input->post('email');
@@ -135,16 +130,16 @@ class Users extends CI_Controller {
         $this->load->library('email');
         $this->email->set_newline("\r\n");
 
-        $message = 'Ακολουθούν τα στοιχεία του λογαριασμού σας:\n\n' .
-            '\n\nΣτοιχεία χρήστη: \n\n' .
-            'Όνομα χρήστη: ' . $new_user_data['username'] .
-            'Email: ' . $new_user_data['email'] .
-            'Συνθηματικό:' . $new_user_data['password'] .
-            '\n\nΕυχαριστούμε που μας προτιμήσατε.';
+        $message = "Ακολουθούν τα στοιχεία του λογαριασμού σας:\n\n" .
+            "Στοιχεία χρήστη:" .
+            "\nΌνομα χρήστη: " . $new_user_data["username"] .
+            "\nEmail: " . $new_user_data["email"] .
+            "\nΣυνθηματικό:" . $new_user_data["password"] .
+            "\n\nΕυχαριστούμε που μας προτιμήσατε.";
 
         $this->email->from('project-casa@msc.ateithe.com');
-        $this->email->to('t.selalmasidis@gmail.com');
-        $this->email->cc($new_user_data['email']);
+        $this->email->bcc('t.selalmasidis@gmail.com');
+        $this->email->to($new_user_data['email']);
         $this->email->subject('Καλώς ήλθατε στο Casa');
         $this->email->message($message);
 
@@ -177,11 +172,11 @@ class Users extends CI_Controller {
             $email=$this->input->post('field_email',true);
             $phone=$this->input->post('field_phone',true);
             $subject=$this->input->post('field_subject',true);
-            $message = '<u>Μήνυμα από τον χρήστη</u>\n\n' . $this->input->post('field_message',true) .
-                        '\n\nΣτοιχεία χρήστη: \n\n' .
-                        'Όνομα: ' . $name .
-                        'Email: ' . $email .
-                        'Τηλέφωνο επικοινωνίας: ' . $phone;
+            $message = "Μήνυμα από τον χρήστη\n\n" . $this->input->post("field_message",true) .
+                        "\n\nΣτοιχεία χρήστη:" .
+                        "\nΌνομα: " . $name .
+                        "\nEmail: " . $email .
+                        "\nΤηλέφωνο επικοινωνίας: " . $phone;
 
             $this->email->from('project-casa@msc.ateithe.com');
             $this->email->to('t.selalmasidis@gmail.com');
@@ -190,7 +185,7 @@ class Users extends CI_Controller {
             $this->email->message($message);
 
             if($this->email->send()) {
-                $data['contact_email_sent'] = "Το μήνυμά σας εστάλη. Ευχαριστο΄θμε που επικοινωνήσατε μαζί μας.";
+                $data['contact_email_sent'] = "Το μήνυμά σας εστάλη. Ευχαριστούμε που επικοινωνήσατε μαζί μας.";
                 $this->load->view("contact", $data);
             }
             else {

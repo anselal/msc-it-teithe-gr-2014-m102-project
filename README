@@ -1,0 +1,24 @@
+============
+Project Page
+============
+
+You can find some helpful information about the technologies we used in this project at
+
+https://code.google.com/p/msc-it-teithe-gr-2014-m102-project/
+
+
+Before you start your application
+---------------------------------
+
+After you succefully uploaded the application to your server, rename the .htaccess_server file to .htaccess
+It is very possible that a file with the same name already exists on your server, so keep a backup of your
+original file before you replace it. 
+The .htaccess file will remove the /index.php/ from the url so it be more userfriendly and searchengine-friendly.
+The code is optimized to not use the index.php file at all. This mean that if you do not make use of our .htaccess
+file, the application will not work correctly or at all.
+
+
+Contact
+-------
+
+You are very welcome to ask questions or leave your feedback at <t.selalmazidis@gmail>.

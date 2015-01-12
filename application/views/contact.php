@@ -55,16 +55,18 @@ $this->load->helper('form');
                 <div class="row">
                     <div class="col-sm-4">
 
-                        <h2>Casa HQ</h2>
-                        <h5>Postal Address</h5>
-                        <p>PO Box 16122 Collins Street West<br />
-                            Victoria 8007 Australia<br />
-                            Envato Headquarters</p>
-                        <p>121 King Street, Melbourne<br />
-                            Victoria 3000 Australia<br />
-                            Envato Pty Ltd</p>
-                        <p>ABN 11 119 159 741<br />
-                            Phone: +61 3 8376 6284</p>
+                        <h2>Casa</h2>
+                        <h5>Διεύθυνση Επικοινωνίας</h5>
+                        <p>Αλεξάνδρειο Τεχνολογικό Ίδρυμα Θεσσαλονίκης<br />
+                            Σχολή Τεχνολογικών Εφαρμογών<br />
+                            Τμήμα Πληροφορικής</p>
+                        <p>Πρόγραμμα Μεταπτυχιακών Σπουδών<br />
+                            Ευφυείς Τεχνολογίες Διαδικτύου</p>
+                        <p>ΑΤΕΙ Θεσσαλονίκης<br />
+                            Τ.Θ.: 141 GR<br />
+                            Τ.Κ.: 57400<br />
+                            Τηλ.: 2310013946<br />
+                            Φαξ: 2310 796256</p>
 
                     </div>
                     <div class="col-sm-7">

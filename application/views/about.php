@@ -54,10 +54,9 @@ print_navbar($sessionData);
 					<div class="row">
 						<div class="col-sm-6">
 
-							<h2>About Casa</h2>
-							<p>Casa was made to make your travelling around the world more exciting and less expensive!</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.</p>
-							
+							<h2>Λίγα λόγια για το Casa</h2>
+							<p>To Casa δημιουργήθηκε για να κάνει τα ταξίδια σας σε όλον τον κόσμο πιο συναρπαστικά και πιο οικονομικά!</p>
+
 						</div>
 						<div class="col-sm-6">
 

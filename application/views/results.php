@@ -11,7 +11,7 @@ require_once('templates/navbar.php');
 require_once('templates/footer.php');
 
 $base_url = base_url();
-print_header("Results");
+print_header("Αποτελέσματα");
 $sessionData[] = NULL;
 if($this->session->userdata('userID')) {
     $sessionData['userID'] = $this->session->userdata('userID');
@@ -30,10 +30,10 @@ print_navbar($sessionData);
     <div class="page-header">
         <div class="container">
             <div class="page-header-inner clearfix">
-                <h1>Search Results - 127 Objects</h1>
+                <h1>Αποτελέσματα</h1>
                 <ul class="custom-list breadcrumbs">
-                    <li><a href="<?php echo $base_url; ?>home">Home</a> / </li>
-                    <li><a href="<?php echo $base_url; ?>results">Search Results</a></li>
+                    <li><a href="<?php echo $base_url; ?>home">Αρχική</a> / </li>
+                    <li><a href="<?php echo $base_url; ?>results">Αποτελέσματα</a></li>
                 </ul>
             </div>
         </div>

@@ -37,14 +37,14 @@ border-bottom: 3px solid transparent;
 
                 <!-- HEADER MENU : begin -->
                 <div class="header-menu">
-                    <button class="header-btn">Menu <i class="fa fa-angle-down"></i></button>
+                    <button class="header-btn">Μενού <i class="fa fa-angle-down"></i></button>
                     <nav class="header-nav">
                         <ul>
-                            <li><a href="{$base_url}home">Home</a></li>
-                            <li><a href="{$base_url}home/about">About Us</a></li>
-                            <li><a href="{$base_url}home/contact">Contact Us</a></li>
-                            <li><a href="{$base_url}home/privacypolicy">Privacy Policy</a></li>
-                            <li><a href="{$base_url}home/termsconditions">Terms &amp; Conditions</a></li>
+                            <li><a href="{$base_url}home">Αρχική</a></li>
+                            <li><a href="{$base_url}home/about">Η εταιρεία μας</a></li>
+                            <li><a href="{$base_url}home/contact">Επικοινωνία</a></li>
+                            <li><a href="{$base_url}home/privacypolicy">Η πολιτική μας</a></li>
+                            <li><a href="{$base_url}home/termsconditions">Όροι Χρήσης</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -55,10 +55,10 @@ border-bottom: 3px solid transparent;
 
                     <!-- HEADER LANGUAGE : begin -->
                     <div class="header-language">
-                        <button class="header-btn">EN <i class="fa fa-angle-down"></i></button>
+                        <button class="header-btn">GR <i class="fa fa-angle-down"></i></button>
                         <nav class="header-nav">
                             <ul class="custom-list">
-                                <li class="active"><a href="#">EN</a></li>
+                                <li class="active"><a href="#">GR</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -66,12 +66,12 @@ border-bottom: 3px solid transparent;
 
                     <!-- HEADER REGISTER : begin -->
                     <div class="header-register">
-                        <a href="{$base_url}users/register" class="header-button"><i class="fa fa-plus-circle"></i> Register</a>
+                        <a href="{$base_url}users/register" class="header-button"><i class="fa fa-plus-circle"></i> Εγγραφή</a>
                     </div>
                     <!-- HEADER REGISTER : end -->
 EOF;
     if(isset($sessionData['userID']) && $sessionData['userID']!=NULL) {
-        echo "<a href='{$base_url}users/logout' class='header-button'><i class='fa fa-power-off'></i> Logout ({$sessionData['username']})</a>" ;
+        echo "<a href='{$base_url}users/logout' class='header-button'><i class='fa fa-power-off'></i> Αποσύνδεση ({$sessionData['username']})</a>" ;
         if($sessionData['userType']=='admin') {
             echo "<a href='{$base_url}admin' class='header-button'> | <b>Admin</b></a>" ;
         }
@@ -82,21 +82,18 @@ EOF;
                     <!-- HEADER LOGIN : begin -->
                     <div class="header-login">
 
-                        <button class="login-toggle header-btn"><i class="fa fa-power-off"></i> Login</button>
+                        <button class="login-toggle header-btn"><i class="fa fa-power-off"></i> Σύνδεση</button>
                         <div class="header-form">
                             <form action="{$base_url}users/login" class="default-form" method="post" />
                             <p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i> All fields are required! <i class="fa fa-times close"></i></p>
                             <p class="form-row">
-                                <input required type="text" placeholder="Username" name="username" />
+                                <input required type="text" placeholder="Όνομα χρήστη" name="username" />
                             </p>
                             <p class="form-row">
-                                <input required type="password" placeholder="Password" name="password" />
+                                <input required type="password" placeholder="Συνθηματικό" name="password" />
                             </p>
                             <p class="form-row">
-                                <button class="submit-btn button"><i class="fa fa-power-off"></i> Login</button>
-                            </p>
-                            <p class="form-row forgot-password">
-                                <a href="#">Forgot Password?</a>
+                                <button class="submit-btn button"><i class="fa fa-power-off"></i> Σύνδεση</button>
                             </p>
                             </form>
                         </div>

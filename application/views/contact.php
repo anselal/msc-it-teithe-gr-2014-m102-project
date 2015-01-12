@@ -12,7 +12,7 @@ require_once('templates/footer.php');
 
 $base_url = base_url();
 
-print_header("Contact Us");
+print_header("Επικοινωνία");
 $sessionData[] = NULL;
 if($this->session->userdata('userID')) {
     $sessionData['userID'] = $this->session->userdata('userID');
@@ -33,15 +33,15 @@ $this->load->helper('form');
                 <div class="page-header-inner">
                     <h1>Contact Us</h1>
                     <ul class="custom-list breadcrumbs">
-                        <li><a href="<?php echo $base_url; ?>home">Home</a> / </li>
-                        <li><a href="<?php echo $base_url; ?>home/contact">Contact Us</a></li>
+                        <li><a href="<?php echo $base_url; ?>home">Αρχική</a> / </li>
+                        <li><a href="<?php echo $base_url; ?>home/contact">Επικοινωνία</a></li>
                     </ul>
                     <nav class="page-header-nav">
                         <ul class="custom-list clearfix">
-                            <li><a href="<?php echo $base_url; ?>home/about">About Us</a></li>
-                            <li class="active"><a href="<?php echo $base_url; ?>home/contact">Contact Us</a></li>
-                            <li><a href="<?php echo $base_url; ?>home/privacypolicy">Privacy Policy</a></li>
-                            <li><a href="<?php echo $base_url; ?>home/termsconditions">Terms &amp; Conditions</a></li>
+                            <li><a href="<?php echo $base_url; ?>home/about">Η εταιρεία μας</a></li>
+                            <li class="active"><a href="<?php echo $base_url; ?>home/contact">Επικοινωνία</a></li>
+                            <li><a href="<?php echo $base_url; ?>home/privacypolicy">Η πολιτική μας</a></li>
+                            <li><a href="<?php echo $base_url; ?>home/termsconditions">Όροι Χρήσης</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -52,7 +52,6 @@ $this->load->helper('form');
         <!-- CONTENT SECTION : begin -->
         <section class="content-section">
             <div class="container">
-
                 <div class="row">
                     <div class="col-sm-4">
 
@@ -69,69 +68,95 @@ $this->load->helper('form');
 
                     </div>
                     <div class="col-sm-7">
-
                         <div class="contact-form-container">
-                            <h5>Send Us a Message</h5>
-                            <?php echo validation_errors(); ?>
 
-                            <?php echo form_open('email/contact_email'); ?>
+                            <?php
+                                if(isset($contact_email_sent)) {
+                                    echo $contact_email_sent;
+                                }
+                                echo '</p>' ;
+                                echo validation_errors();
+                                echo form_open('users/contact_email');
 
-                            <!-- FORM VALIDATION ERROR MESSAGE : begin -->
-                            <p class="alert-message warning validation" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><strong>All fields are required!</strong></p>
-                            <!-- FORM VALIDATION ERROR MESSAGE : end -->
+                                echo '<div class="row">' ;
+                                echo '<div class="col-sm-6">' ;
 
-                            <!-- SENDING REQUEST ERROR MESSAGE : begin -->
-                            <p class="alert-message warning request" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><strong>Form not sent!</strong><br />There was a connection problem. Try again later.</p>
-                            <!-- SENDING REQUEST ERROR MESSAGE : end -->
+                                echo form_input(array(
+                                    'name' => 'field_name',
+                                    'value' => set_value('field_name'),
+                                    'placeholder' => 'Όνομα',
+                                    'required' => ''));
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <p><input type="text" id="field_name" name="field_name" required placeholder="Name" /></p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p><input type="text" id="field_email" name="field_email" required placeholder="Email" /></p>
-                                    <p class="contact-hp-email">
-                                        <input type="text" id="field_email_hp" name="field_email_hp" />
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <p><input type="text" id="field_phone" name="field_phone" required placeholder="Phone" /></p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p>
-                                        <select id="field_subject" name="field_subject" required data-placeholder="Subject">
-                                            <option value="hello" />Say Hello
-                                            <option value="question" />Ask a question
-                                            <option value="feedback" />Leave Feedback
-                                        </select>
-                                    </p>
-                                </div>
-                            </div>
-                            <p><textarea id="field_message" name="field_message" required placeholder="How can we help you?"></textarea></p>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <p class="form-note">All fields are required</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p class="form-submit"><button class="button submit-btn" data-loading-label="Sending..."><i class="fa fa-envelope"></i> Send Message</button></p>
-                                </div>
-                            </div>
+                                echo '</div>' ;
+                                echo '<div class="col-sm-6">' ;
 
-                            </form>
+                                echo form_input(array(
+                                    'name' => 'field_email',
+                                    'value' => set_value('field_email'),
+                                    'placeholder' => 'Email',
+                                    'required' => ''));
+
+                                echo '</div>' ;
+                                echo '</div>' ;
+                                echo '</p>' ;
+                                echo '<div class="row">' ;
+                                echo '<div class="col-sm-6">' ;
+
+                                echo form_input(array(
+                                    'name' => 'field_phone',
+                                    'value' => set_value('field_phone'),
+                                    'placeholder' => 'Τηλέφωνο',
+                                    'required' => ''));
+
+                                echo '</div>' ;
+                                echo '<div class="col-sm-6">' ;
+
+                                echo form_dropdown('field_subject',
+                                    array(
+                                        '' => 'Σκοπός επικοινωνίας',
+                                        'Say Hello'  => 'Αφήστε ένα μήνυμα',
+                                        'Ask a question'    => 'Ρωτήστε μας κάτι',
+                                        'Αφήστε κάποιο σχόλιο'   => 'Αφήστε κάποιο σχόλιο'),
+                                    '', // default value
+                                    'id="field_subject" name="field_subject" required data-placeholder="Subject"');
+
+                                echo '</div>' ;
+                                echo '</div>' ;
+                                echo '</p>' ;
+
+                                echo form_textarea(array(
+                                    'name' => 'field_message',
+                                    'value' => set_value('field_message'),
+                                    'placeholder' => 'Message',
+                                    'rows' => 5,
+                                    'cols' => 50,
+                                    'required' => ''));
+
+                                echo '<button class="button submit-btn" data-loading-label="Sending...">
+                                      <i class="fa fa-envelope"></i> Αποστολή Μηνύματος
+                                      </button>' ;
+
+                                echo form_button(array(
+                                    'name' => 'field_reset',
+                                    'id' => 'field_reset',
+                                    'value' => 'true',
+                                    'type' => 'reset',
+                                    'class' => 'button',
+                                    'content' => 'Καθαρισμός φόρμας'
+                                ));
+
+
+
+                                echo form_close();
+                            ?>
 
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </section>
         <!-- CONTENT SECTION : end -->
-
     </div>
     <!-- CORE : end -->
-
 
 <?php print_footer(); ?>

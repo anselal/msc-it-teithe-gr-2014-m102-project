@@ -10,7 +10,7 @@ require_once('templates/navbar.php');
 require_once('templates/footer.php');
 
 $base_url = base_url();
-print_header("Register");
+print_header("Δημιουργία Λογαριασμού");
 $sessionData[] = NULL;
 if($this->session->userdata('userID')) {
     $sessionData['userID'] = $this->session->userdata('userID');
@@ -27,14 +27,14 @@ print_navbar($sessionData);
         <div class="page-header has-nav">
             <div class="container">
                 <div class="page-header-inner">
-                    <h1>Register</h1>
+                    <h1>Δημιουργία Λογαριασμού</h1>
                     <ul class="custom-list breadcrumbs">
-                        <li><a href="<?php echo $base_url; ?>home">Home</a> / </li>
-                        <li><a href="<?php echo $base_url; ?>home/about">Register</a></li>
+                        <li><a href="<?php echo $base_url; ?>home">Αρχική</a> / </li>
+                        <li><a href="<?php echo $base_url; ?>home/about">Δημιουργία Λογαριασμού</a></li>
                     </ul>
                     <nav class="page-header-nav">
                         <ul class="custom-list clearfix">
-                            <li class="active"><a href="<?php echo $base_url; ?>home/about">Create New Account</a></li>
+                            <li class="active"><a href="<?php echo $base_url; ?>home/about">Δημιουργία Λογαριασμού</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -52,9 +52,6 @@ print_navbar($sessionData);
                         <h2>Register</h2>
                         <p>To facilitate your registration we inform you that all the fields are required.</p>
                         <p>The field Name requires at least 4 characters,the field Username requires at least 5 characters, the field Password requires at least 4 characters and the field Repeat Password must be the same with the previous.</p>
-                        <p class="cta-button">
-                            <a href="#" class="button"><i class="fa fa-heart"></i> Get Started!</a>
-                        </p>
 
                     </div>
                     <div class="col-sm-6">
@@ -69,6 +66,9 @@ print_navbar($sessionData);
                         if(isset($email_exists)) {
                             echo $email_exists;
                         }
+                        if(isset($email_not_sent)) {
+                            echo $email_not_sent;
+                        }
                         echo validation_errors();
 
                         echo form_open('users/register');
@@ -76,13 +76,13 @@ print_navbar($sessionData);
                         echo form_input(array(
                             'name' => 'name',
                             'value' => $this->input->post('name'),
-                            'placeholder' => 'Name'));
+                            'placeholder' => 'Όνομα'));
                         echo"</p>";
 
                         echo form_input(array(
                             'name' => 'username',
                             'value' => $this->input->post('username'),
-                            'placeholder' => 'Username'));
+                            'placeholder' => 'Όνομα χρήστη'));
                         echo"</p>";
 
                         echo form_input(array(
@@ -94,15 +94,21 @@ print_navbar($sessionData);
                         echo form_password(array(
                             'name' => 'password',
                             'value' => $this->input->post('password'),
-                            'placeholder' => 'Password'));
+                            'placeholder' => 'Συνθηματικό'));
                         echo"</p>";
 
                         echo form_password(array(
                             'name' => 'r_password',
                             'value' => $this->input->post('rpassword'),
-                            'placeholder' => 'Repeat Password'));
+                            'placeholder' => 'Επανάληψη συνθηματικού'));
                         echo"</p>";
-                        echo form_submit('register_submit','Register');
+
+                        echo form_submit(array(
+                            'name' => 'register_submit',
+                            'id' => 'register_submit',
+                            'class' => 'button',
+                            'value' => 'Δημιουργία Λογαριασμού'
+                        ));
                         echo"</p>";
                         echo form_close();
 

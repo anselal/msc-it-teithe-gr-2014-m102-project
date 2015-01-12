@@ -12,7 +12,7 @@ require_once('templates/footer.php');
 
 $base_url = base_url();
 
-print_header("Home");
+print_header("Αρχική");
 $sessionData[] = NULL;
 $userID = $this->session->userdata('userID');
 if(isset($userID)) {
@@ -39,7 +39,7 @@ print_navbar($sessionData);
         <div class="container">
             <div class="banner-search-inner">
                 <ul class="custom-list tab-title-list clearfix">
-                    <li class="tab-title active"><a href="#book">Book</a></li>
+                    <li class="tab-title active"><a href="#book">Κράτηση</a></li>
                 </ul>
                 <ul class="custom-list tab-content-list">
 
@@ -49,27 +49,27 @@ print_navbar($sessionData);
 
                         <!-- SEARCH INPUT : begin -->
 									<span class="search-input">
-										<input type="text" required name="city" placeholder="Where do you want to book?" />
+										<input type="text" required name="city" placeholder="Πόλη" />
 									</span>
                         <!-- SEARCH INPUT : end -->
 
                         <!-- ARRIVAL DATE : begin -->
 									<span class="calendar-input input-left" title="Arrival">
-										<input type="text" name="arrival" placeholder="Arrival" data-dateformat="d/m/y" />
+										<input type="text" name="arrival" placeholder="Άφιξη" data-dateformat="d/m/y" />
 										<i class="fa fa-calendar"></i>
 									</span>
                         <!-- ARRIVAL DATE : end -->
 
                         <!-- DEPARTURE DATE : begin -->
 									<span class="calendar-input input-right" title="Departure">
-										<input type="text" name="departure" placeholder="Departure" data-dateformat="d/m/y" />
+										<input type="text" name="departure" placeholder="Αναχώρηση" data-dateformat="d/m/y" />
 										<i class="fa fa-calendar"></i>
 									</span>
                         <!-- DEPARTURE DATE : end -->
 
                         <!-- ADULTS : begin -->
 									<span class="select-box" title="Adults">
-										<select name="adults" data-placeholder="Adults">
+										<select name="adults" data-placeholder="Ενήλικες">
                                             <option />Adults
                                             <option value="1" />1
                                             <option value="2" />2
@@ -82,7 +82,7 @@ print_navbar($sessionData);
 
                         <!-- CHILDREN : begin -->
 									<span class="select-box" title="Children">
-										<select name="children" data-placeholder="Children">
+										<select name="children" data-placeholder="Παιδιά">
                                             <option />Children
                                             <option value="1" />1
                                             <option value="2" />2
@@ -95,7 +95,7 @@ print_navbar($sessionData);
 
                         <!-- SUBMIT : begin -->
 									<span class="submit-btn">
-										<button class="button"><i class="fa fa-search"></i> Search</button>
+										<button class="button"><i class="fa fa-search"></i> Αναζήτηση</button>
 									</span>
                         <!-- SUBMIT : end -->
 

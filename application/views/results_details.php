@@ -12,7 +12,7 @@ require_once('templates/footer.php');
 
 $base_url = base_url();
 
-print_header("Results Details");
+print_header("Αποτελέσματα - Λεπτομέρειες");
 $sessionData[] = NULL;
 if($this->session->userdata('userID')) {
     $sessionData['userID'] = $this->session->userdata('userID');
@@ -30,11 +30,11 @@ print_navbar($sessionData);
     <div class="page-header">
         <div class="container">
             <div class="page-header-inner clearfix">
-                <h1>Hacienda in Mexico - Book</h1>
+                <h1>Αποτελέσματα - Λεπτομέρειες</h1>
                 <ul class="custom-list breadcrumbs">
-                    <li><a href="<?php echo $base_url; ?>home">Home</a> / </li>
-                    <li><a href="<?php echo $base_url; ?>results">Search Results</a> /</li>
-                    <li><a href="<?php echo $base_url; ?>results/details">Property Details</a></li>
+                    <li><a href="<?php echo $base_url; ?>home">Αρχική</a> / </li>
+                    <li><a href="<?php echo $base_url; ?>results">Αποτελέσματα</a> /</li>
+                    <li><a href="<?php echo $base_url; ?>results/details">Αποτελέσματα - Λεπτομέρειες</a></li>
                 </ul>
             </div>
         </div>

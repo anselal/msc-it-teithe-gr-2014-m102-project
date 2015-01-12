@@ -29,22 +29,22 @@ function print_footer() {
 
                 <!-- LINKS WIDGET : begin -->
                 <div class="widget links-widget">
-                    <h3 class="widget-title"><span>Quick Links</span></h3>
+                    <h3 class="widget-title"><span>Χρήσιμοι Σύνδεσμοι</span></h3>
                     <div class="widget-content">
                         <div class="row">
                             <div class="col-md-4">
                                 <ul class="custom-list">
-                                    <li><a href="{$base_url}home">Home</a></li>
-                                    <li><a href="{$base_url}home/about">About Us</a></li>
-                                    <li><a href="{$base_url}home/contact">Contact</a></li>
+                                    <li><a href="{$base_url}home">Αρχική</a></li>
+                                    <li><a href="{$base_url}home/about">Η εταιρεία μας</a></li>
+                                    <li><a href="{$base_url}home/contact">Επικοινωνία</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-8">
                                 <ul class="custom-list">
-                                    <li><a href="mailto:t.selalmazidis@gmail.com">Anastasios Selalmazidis</a></li>
-                                    <li><a href="mailto:apostolia2000@gmail.com">Apostolia Vatmanidou</a></li>
-                                    <li><a href="mailto:tassos@papafylakis.gr">Anastasios Papafylakis</a></li>
-                                    <li><a href="mailto:mariampouzinou@yahoo.gr">Maria Mpouzinou</a></li>
+                                    <li><a href="mailto:t.selalmazidis@gmail.com">Αναστάσιος Σελαλμαζίδης</a></li>
+                                    <li><a href="mailto:apostolia2000@gmail.com">Αποστολία Βατμανίδου</a></li>
+                                    <li><a href="mailto:tassos@papafylakis.gr">Αναστάσιος Παπαφυλάκης</a></li>
+                                    <li><a href="mailto:mariampouzinou@yahoo.gr">Μαρία Μπουζίνου</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ function print_footer() {
             <div class="col-sm-8">
 
                 <!-- FOOTER TEXT : begin -->
-                <p>Copyright 2014 &copy; Casa. All rights reserved.</p>
+                <p>Copyright 2014 &copy; Casa. Με την επιφύλαξη όλων των δικαιωμάτων.</p>
                 <!-- FOOTER TEXT : end -->
 
             </div>

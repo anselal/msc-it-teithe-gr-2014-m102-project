@@ -12,7 +12,7 @@ require_once('templates/footer.php');
 
 $base_url = base_url();
 
-print_header("Terms &amp; Conditions");
+print_header("Όροι Χρήσης");
 $sessionData[] = NULL;
 if($this->session->userdata('userID')) {
     $sessionData['userID'] = $this->session->userdata('userID');
@@ -30,17 +30,17 @@ print_navbar($sessionData);
         <div class="page-header has-nav">
             <div class="container">
                 <div class="page-header-inner">
-                    <h1>Terms &amp; Conditions</h1>
+                    <h1>Όροι Χρήσης</h1>
                     <ul class="custom-list breadcrumbs">
-                        <li><a href="<?php echo $base_url; ?>home">Home</a> / </li>
-                        <li><a href="<?php echo $base_url; ?>home/termsconditions">Terms &amp; Conditions</a></li>
+                        <li><a href="<?php echo $base_url; ?>home">Αρχική</a> / </li>
+                        <li><a href="<?php echo $base_url; ?>home/termsconditions">Όροι Χρήσης</a></li>
                     </ul>
                     <nav class="page-header-nav">
                         <ul class="custom-list clearfix">
-                            <li><a href="<?php echo $base_url; ?>home/about">About Us</a></li>
-                            <li><a href="<?php echo $base_url; ?>home/contact">Contact Us</a></li>
-                            <li><a href="<?php echo $base_url; ?>home/privacypolicy">Privacy Policy</a></li>
-                            <li class="active"><a href="<?php echo $base_url; ?>home/termsconditions">Terms &amp; Conditions</a></li>
+                            <li><a href="<?php echo $base_url; ?>home/about">Η εταιρεία μας</a></li>
+                            <li><a href="<?php echo $base_url; ?>home/contact">Επικοινωνία</a></li>
+                            <li><a href="<?php echo $base_url; ?>home/privacypolicy">Η πολιτική μας</a></li>
+                            <li class="active"><a href="<?php echo $base_url; ?>home/termsconditions">Όροι Χρήσης</a></li>
                         </ul>
                     </nav>
                 </div>

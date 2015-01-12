@@ -6,7 +6,7 @@
  * Time: 9:37 PM
  */
 
-function print_header($title="Home") {
+function print_header($title="Αρχική") {
     $base_url = base_url();
     echo <<< EOF
 <!DOCTYPE html>

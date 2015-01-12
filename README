@@ -16,7 +16,8 @@ original file before you replace it.
 The .htaccess file will remove the /index.php/ from the url so it be more userfriendly and searchengine-friendly.
 The code is optimized to not use the index.php file at all. This mean that if you do not make use of our .htaccess
 file, the application will not work correctly or at all.
-
+Also you must edit the application/config/email.php file and set your own email settings for the email function
+to work.
 
 Contact
 -------
